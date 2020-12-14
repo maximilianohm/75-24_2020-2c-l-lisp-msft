@@ -1,0 +1,23 @@
+LISP fue creado por John McCarthy (1927-2011) en el año 1958. McCarthy es una leyenda en la la ciencia de la computación y más importante en IA (Inteligencia Artificial), ya que para esta última fue de las primeras personas en 
+interesarse en esta última (para ser específicos desde 1948) y acuño el término en 1955. Tambien había comenzado el desarrollo del concepto de 'timesharing' a finales de los 50 y principios de lo 60. McCarthy comenzó a interesarse 
+en IA en Septiembre de 1948, cuando asistió a una conferencia, denominada 'Hixon Symposium on Cerebral Mechanisms in Behavior', en donde se juntaban a diferentes líderes de diferentes áreas relacionadas a la ciencia cognitiva, entre 
+ellos el famoso psicologo Karl Lashley como los matemáticos Alan Turing y Claude Shannon. A medida que McCarthy escuchaba las discusiones que surgian al comparar las computadoras con el cerecro, tuvo una idea que revolucionaría la 
+computación, por lo que, desde ese momento, su principal interes era el desarrollo de máquinas que pudieran pensar como los humanos.
+En los años 50, McCarthy no era el único investigando en lo que luego se llamaría Inteligencia Artificial, entre ellos varios científicos tales como Marvin Minsky,  Herbert Simon, Allen Newell y Oliver Selfridge, pero lo que lo 
+distinguía de estos es que el trabajo de McCarthy hacía enfasis en el uso de la lógica matemática tanto como lenguaje parar representar el conocimiento que una IA debe tener asi como un medio de razonamiento con ese conocimiento. 
+Esta fue la principal motivación que tuvo McCarthy para crear LISP, en 1958.
+LISP ha cambiado mucho desde sus comienzos. Las listas enlazadas son una de las estructuras de datos mas importantes del lenaguaje y su codigo fuente está hecho en base a listas. Fue originalmente creado como una notación matemática 
+práctica para los programas de computación, así mismo está basado en la notación de Alonzo Church del cálculo lambda. Al ser uno de los primeros lenguajes de programación, fue pionero en varias ideas de la ciencia de la computación, 
+tales como las estructuras de árbol, la administración automática de almacenamiento, tipedo dinámico y un auto-compilador.
+
+- Fuente: https://history-computer.com/ModernComputer/Software/LISP.html
+
+LISP fue fundado en la teoría matemática de las funciones recursivas. Así mismo, un programa Lisp es una función aplicada a la data, en contraparte a ser una secuencia de instrucciones como FORTAN y ALGOL. LISP usa una muy simple 
+notación en la cual operaciones y sus operandos son dados en una lista con paréntesis, por ejemplo,(+ a (* b c)) es equivalente a 'a + b*c'. 
+
+- Fuente: https://www.britannica.com/technology/LISP-computer-language
+
+Según el mismo McCarthy, LISP se va a volver obsoleto cuando alguien haga un lenguaje mas entendible que domine la practicalidad de LISP y que también tenga una clara semántica matemática para un set de features mas compensivos.
+
+- Fuente: http://jmc.stanford.edu/articles/lisp/lisp.pdf
+
