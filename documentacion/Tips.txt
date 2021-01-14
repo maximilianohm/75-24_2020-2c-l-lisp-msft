@@ -1,0 +1,54 @@
+Macros
+Meta-programming
+
+
+compile the file
+
+    Ctrl+C Ctrl+K
+
+Compile a siple function
+
+    Select the function to be compiled.
+    Ctrl+C Ctrl+C 
+
+Turn off the parenthesys auto-complete in the current buffer
+
+    Select the parenthesys in the buffer slime
+    Alt+X 
+    paredit-mode 
+    <enter>
+
+Make the buffer a Lisp buffer
+
+    Ctrl+xb
+    choose the name of the buffer
+
+Emacs: CopyPaste
+
+    Ctrl+w -> Cut 
+    Ctr+y  -> Paste 
+
+    Making the ctrl+c, ctrl+x, ctrl+v default
+
+        Alt+x
+        cua-mode 
+
+Emacs: Split tabs 
+
+    horizontally => Ctrl+x3
+    Vertically => Ctrl+x2
+
+Emacs: Join tabs
+
+    Ctrl+x0
+
+Coment:
+
+    Everything with a quote (') as prefix will not be evaluated. ?
+
+
+
+Emacs: Safe curren buffer to file
+    Ctrl+x Ctrl+s
+
+    ! In order to compile, the buffer must be saved with the '.lisp' extension (without typos).
