@@ -1,0 +1,6 @@
+(defun escribir ()
+  (with-open-file (stream "Escribir.txt" :direction :output :if-exists :rename-and-delete)
+    (format stream "Escribo una linea")
+    (terpri stream)
+    (format stream "Escribo otra linea")
+    (terpri stream)))
