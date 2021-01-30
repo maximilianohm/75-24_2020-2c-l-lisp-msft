@@ -1,0 +1,76 @@
+VENTAJAS:
+
+- Impulsa a escribir programas más rápidos, esto se debe a que los programas en Lips suelen ser mucho más pequeños a comparación de otros lenguajes, por lo que tambien es mucho m´s fácil de mantener por lo que a su vez toma menos tiempo de desarrollo.
+
+- Facilita la creación de Macros, esto facilita a la creación de extensiones modularizadas las cuales son muy sencillas de incorporar en nuestros programas.
+
+- Las macros pueden devolver cualquier cosa, hasta pedazos de código, esa es una demostración de lo poderosas que son estas macros en Lisp. Así mismo, tambien se las puede utilizar para hacer cosas que no son tan importantes, como por ejemplo, agregar syntactic sugar, aunque en este caso sería un desaprovechamiento de todo el poder que tienen las macros en este lenguaje.
+
+- Nunca queda desactualizado
+
+- Funciona realmente muy bien, aca hay un ejemplo que lo compara con C (Worse is Better - 1.2 Good Performance)
+
+- Tiene muy buenos enviroments, fueron de los primeros en cosas como los primeros editores de texto maximizados, tener la posibilidad de usar en modo ventana un enviroments, entre otros. Así mismo, se dice que algunas caraterísticas surgieron en Lisp pero no se está seguro del todo, una de ellas son la carga y compilación incremental, debugger de simbolos, etc.
+
+- Buena integración, puede coexistir con una gran cantidad de lenguajes, tales como C, Foltra, Pascal, etc. Estos lenguajes pueden ser invocados desde Lisp y, en líneas generalees, tambien la inversa.
+
+- Al ser multiparadigma, funciona realmente bien con la orientación a objetos, ya que CLOS (Common Lisp Object System) presenta características que no puede ser encontradas en otros lenguajes orientados a objetos, entre ellas se encuentra, 
+	• Herencia múltiple
+	• Funciones genéricas que incluyen múltiples métodos, esto quiere decir que los metodos pueden distiguir según los tipos de todos lo argumentos. Muchos lenguajes 	  OO son de resolución simple, sus métodos sólo se distinguen con el primer argumento. Los métodos en CLOS se agrupan en funciones genéricas, colecciones de 	  métodos con el mismo nombre y estructura de argumentos, pero con argumentos de tipos diferentes.
+	• Metaclases
+	• Protocolos de inicialización
+	• Protocolo de metaobjetos
+
+Entre otros. También se dice que CLOS es el primer lenguaje de programación estandarizado orientado a objetos.
+
+					-------------------------------------------------------------------------------------------------
+
+CONTRAS:
+
+- Mala sintaxis por el tema de utilizar las listas
+
+- Aprender a programar bien en Lisp es muy complejo. En las aplicaciones reales se necesitan que el código funcione bien, y en Lisp, es muy facil escribir programas que funcionan muy mal.
+
+- Malas declaraciones (Worse is Better - 2.2.1 Bad Declarations)
+
+- Mala implementacion (Worse is Better - 2.2.2 Poor Knowledge of the Implementation)
+
+					------------------------------------------------------------------------------------------------
+
+DERIVADOS:
+
+- Se creo GOOL (Game Oriented Assembly Lisp), orientado en los videojuegos, creado por la empresa norteamericana Naugthy Dog, fue utilizado en el famoso videojuego Crash Bandicoot (Playstation 1), el mismo fue creado para permitir controlar objetos necesarios para crear un videojuego.  El mismo fue evolucionando y se creo GOAL (Game Oriented Assembly Lisp), utilizada en juegos como Jax and Daxter (Playstation 2), en donde se comenzo a utilizar un estilo de programación imperativa, esto significa que los programas consistian en una serie de eventos en vez la utilización de funciones que se evalúan recursivamente de la programación funcional. Este lenguaje ya no fue utilizado por la empresa debido a que fue adquirida por Sony, obligandola a desecharla, aunque se utilizó en parte en algunos juegos de Playstation 3, como The Last of Us.
+
+- Clojure, originado en 2007, hace énfasis en el paradigma funcional, con el objetivo principal de eliminan la complejidad que se está asociada en la programación concurrente. Es utilizado por firmas e instituciones gubernamientales tales como Apple, Netflix, Walmart, NASA, principalmente en todo lo relacionado al desarrollo Web, IA, entre otros. Entre las ventajas podemos encontrar que tiene toda la solidez que presentan los lenguajes funcionales, es lazy, la utilizacion de paralelismo y obviamente la potencia de los Macros.
+
+- Racket, creado en 1994, uno de sus principales objetivos es posibilitar la creación de nuevos lenguajes o dialectos, es usado en entornos tales como scripting, enseñanza en ingeniería informática o la investigación. Es altamente flexible, presenta características tales como el uso de macros, módulos, clausuras, recursión en cola, y mucho más. Permite a su vez la implementación de evaluación perezosa (del inglés lazy evaluation), no estando esta característica en el núcleo principal del lenguaje.
+
+- Scheme, originado en 1975, su filosofía es minimalista, ya que su objetivo no es la de acumular un gran número de funcionalidades, por lo que se construye todo a partir de un número reducido de abstracciones, por ejemplo,  el mecanismo principal para el control de flujo son las llamadas recursivas. Fue uno de los primeros con continuaciones explícitas, un mecanismo para guardar y usar el estado entero de un programa en un momento determinado. Las listas son la estructura de datos básica del lenguaje y, debido a su especificación minimalista, no hay sintaxis explícita para crear registros o estructuras,
+
+- AutoLISP, creado en 1986, es utilizado para generar rutinas orientadas al uso específico de AutoCAD, el cuál es un sofware de diseño utilizado para hacer dibujos y modelados 3D. Amplían los comandos y aplicaciones de AutoCAD, creando así una solución óptima para cada problema en particular, desde el simple trazo de una línea hasta el diseño de un plano, llegando a cálculos complejos, convirtiéndose en gran ayuda para las aplicaciones de ingeniería. Puede interactuar con el usuario a traves del editor gráfico de AutoCAD mediante el uso de funciones primitivas que le permiten al usuario seleccionar puntos, objetos en la pantalla, e introducir numeros u otro tipo de datos.
+
+- Dylan, originado en 1990 por Apple, es en escencia, una versión depurada y simplificada de CLOS. Así mismo, es un lenguaje dinámico pero esta diseñado para que funcione igual de bien que un lenguaje estático. En Dylan, la mayoría de las entidad son objetos de “primera clase”. Los programas pueden ser escritos desde una forma fuertemente tipeada a una forma débilmente tipeada. Dylan soporta herencia múltiple, polimorfismo, palabras clave, macros, y muchas otras características avanzadas.
+
+					-------------------------------------------------------------------------------------------------
+
+LINKS IMPORTANTES
+
+- Historia de las macros: http://www.gigamonkeys.com/book/macros-defining-your-own.html
+
+- Worse is Better: http://www.laputan.org/gabriel/worse-is-better.html
+
+- GOOL: https://all-things-andy-gavin.com/2011/03/12/making-crash-bandicoot-gool-part-9/
+
+- GOAL: https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp
+
+- Crojure: https://es.wikipedia.org/wiki/Clojure - https://programadorwebvalencia.com/clojure-que-es-y-para-que-sirve/
+
+- Familia de lenguajes Lisp: https://en.wikipedia.org/wiki/List_of_Lisp-family_programming_languages
+
+- Racket: https://es.wikipedia.org/wiki/Racket_(lenguaje_de_programaci%C3%B3n)
+
+- Scheme: https://es.wikipedia.org/wiki/Scheme
+
+- AutoLISP: https://en.wikipedia.org/wiki/AutoLISP - https://es.wikipedia.org/wiki/Autolisp - https://es.wikipedia.org/wiki/AutoCAD
+
+- Dylan: https://opendylan.org/documentation/intro-dylan/why-dylan.html#garbage-collection - https://en.wikipedia.org/wiki/Dylan_(programming_language) - https://es.wikipedia.org/wiki/Dylan_(lenguaje_de_programaci%C3%B3n)
