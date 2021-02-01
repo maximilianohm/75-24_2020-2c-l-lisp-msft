@@ -13,7 +13,7 @@
 (ql:quickload "alexandria")
 
 (defun words (string)
-  (cl-ppcre:all-matches-as-strings "[a-z]+" string))
+  (cl-ppcre:all-matches-as-strings "[A-Za-zÄÖÜäöüáéíóú]+" string))
 
 (defun train (words)
   (let ((frequency (make-hash-table :test 'equal)))
@@ -60,6 +60,6 @@
         maximizing (gethash word *freq* 1)
         finally (return word)))
 
-;(time (loop for i from 1 to 1000000 do (correct "something")))
 
-(write (correct "caassa"))
+
+(write (correct "teda"))
