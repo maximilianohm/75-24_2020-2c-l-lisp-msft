@@ -22,8 +22,8 @@
       (setf (gethash word frequency) (1+ (gethash word frequency 1))))
     frequency))
 
-(defvar *freq* (train (words (nstring-downcase (alexandria:read-file-into-string #P"big.txt")))))
-(defvar *alphabet* "abcdefghijklmnopqrstuvwxyz")
+(defvar *freq* (train (words (nstring-downcase (alexandria:read-file-into-string #P"archivo_grande.txt")))))
+(defvar *alphabet* "abcdefghijklmnñopqrstuvwxyz")
 
 ;;; edits of one character
 (defun edits-1 (word)
@@ -60,5 +60,6 @@
         maximizing (gethash word *freq* 1)
         finally (return word)))
 
-(time (loop for i from 1 to 1000000 do (correct "something")))
+;(time (loop for i from 1 to 1000000 do (correct "something")))
 
+(write (correct "caassa"))
