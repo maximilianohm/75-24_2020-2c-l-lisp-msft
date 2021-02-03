@@ -60,6 +60,3 @@
         maximizing (gethash word *freq* 1)
         finally (return word)))
 
-
-
-(write (correct "teda"))
