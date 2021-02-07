@@ -1,0 +1,1 @@
+1: "Esto es un archivo de prueba"2: "Ahora estoy una linea debajo"3: "Ahora estoy dos lineas abajo"4: "Fin de archivo"5: ""1: "Esto es un archivo de prueba"2: "Ahora estoy una linea debajo"3: "Ahora estoy dos lineas abajo"4: "Fin de archivo"5: ""
