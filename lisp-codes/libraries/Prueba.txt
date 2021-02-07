@@ -1,4 +1,0 @@
-Esto es un archivo de prueba
-Ahora estoy una linea debajo
-Ahora estoy dos lineas abajo
-Fin de archivo
