@@ -37,7 +37,7 @@
 
 (defun indexFile (filePath) 
   
-    "Crea el indice del archivo de texto indexando por palabra con correccion."
+    "Crea el indice del archivo de texto indexando por lineas que poseen palabras a corregir."
 
     (let ((index '(nil)) 
           (lines '(nil))
