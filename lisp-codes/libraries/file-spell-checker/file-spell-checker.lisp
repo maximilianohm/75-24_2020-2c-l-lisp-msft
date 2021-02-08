@@ -14,9 +14,7 @@
         
         ; Si no hay sugerencias, o la unica sugerencia es la palabra misma, significa que no hay correcciones.
         ; Luego, se retorna la lista vacia.
-        (if (or
-                (nth 0 sugerencias)
-                (and (= 1 (length sugerencias)) (= (nth 0 sugerencias) word)))
+        (if (and (= 1 (length sugerencias)) (string= (nth 0 sugerencias) word))
             (setq sugerencias '(nil))
         )
 
