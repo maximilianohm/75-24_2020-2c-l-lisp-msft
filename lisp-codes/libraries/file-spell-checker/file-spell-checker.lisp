@@ -10,7 +10,7 @@
 
     "Dado un diccionario, busca las sugerencias de correccion de <word>. Si no hay sugerencias retorna una lista vacia.  Caso contrario, retorna la lista de sugerencias."
 
-    (let (sugerencias (correct-ii diccionario word)) 
+    (let ((sugerencias (correct-ii diccionario word))) 
         
         ; Si no hay sugerencias, o la unica sugerencia es la palabra misma, significa que no hay correcciones.
         ; Luego, se retorna la lista vacia.
@@ -20,7 +20,7 @@
             (setq sugerencias '(nil))
         )
 
-        (return-from get-words sugerencias)
+        (return-from get-suggestions sugerencias)
     )
 ); get-suggestions
 

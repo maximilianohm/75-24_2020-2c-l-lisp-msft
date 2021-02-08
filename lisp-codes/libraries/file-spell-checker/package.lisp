@@ -1,4 +1,4 @@
 ;;;; package.lisp
 
 (defpackage #:file-spell-checker
-  (:use #:cl))
+  (:use #:cl #:spell-checker))
