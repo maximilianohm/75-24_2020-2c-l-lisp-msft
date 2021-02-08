@@ -6,6 +6,24 @@
     "Dado un string, devuelve una lista de palabras."
     (cl-ppcre:all-matches-as-strings "[A-Za-zÄÖÜäöüáéíóú]+" string))
 
+(defun get-suggestions (diccionario word)
+
+    "Dado un diccionario, busca las sugerencias de correccion de <word>. Si no hay sugerencias retorna una lista vacia.  Caso contrario, retorna la lista de sugerencias."
+
+    (let (sugerencias (correct-ii diccionario word)) 
+        
+        ; Si no hay sugerencias, o la unica sugerencia es la palabra misma, significa que no hay correcciones.
+        ; Luego, se retorna la lista vacia.
+        (if (or
+                (nth 0 sugerencias)
+                (and (= 1 (length sugerencias)) (= (nth 0 sugerencias) word)))
+            (setq sugerencias '(nil))
+        )
+
+        (return-from get-words sugerencias)
+    )
+); get-suggestions
+
 (defun index-words (diccionario line) 
 
     "Dado un diccionario, indexa las palabras de una linea indicando cuales poseen correcciones sugeridas."
@@ -22,7 +40,7 @@
                 (setq index (list (list numero_palabra wordcur '(nil))))
             )
         )
-        
+
         (return-from index-words index)
     )
 ); index-words
