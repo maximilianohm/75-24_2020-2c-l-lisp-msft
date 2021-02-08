@@ -2,6 +2,32 @@
 
 ;(in-package #:file-spell-checker)   ; Esto lo agrego quicklisp.  hay que ver por que sacandolo funciona cuando invocas la funcion en sbcl.
 
+(defun get-words (string)
+    "Dado un string, devuelve una lista de palabras."
+    (cl-ppcre:all-matches-as-strings "[A-Za-zÄÖÜäöüáéíóú]+" string))
+
+(defun index-words (diccionario line) 
+
+    "Dado un diccionario, indexa las palabras de una linea indicando cuales poseen correcciones sugeridas."
+    
+    (let ((words (get-words line ))
+          (index '(nil))
+          (numero_palabra 0))
+        (dolist (wordcur words) 
+
+            (setq numero_palabra (+ numero_palabra 1))
+
+            (if (nth 0 index)
+                (push (list numero_palabra wordcur '(nil)) (cdr (last index)))
+                (setq index (list (list numero_palabra wordcur '(nil))))
+            )
+        )
+        
+        (return-from index-words index)
+    )
+); index-words
+    
+
 (defun index-file (diccionario file-path) 
   
     "Crea un indice del archivo de texto <file-path> indexando por lineas que poseen palabras a corregir."
