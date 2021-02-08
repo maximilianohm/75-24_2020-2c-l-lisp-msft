@@ -34,8 +34,8 @@
             (setq numero_palabra (+ numero_palabra 1))
 
             (if (nth 0 index)
-                (push (list numero_palabra wordcur '(nil)) (cdr (last index)))
-                (setq index (list (list numero_palabra wordcur '(nil))))
+                (push (list numero_palabra wordcur (get-suggestions diccionario wordcur)) (cdr (last index)))
+                (setq index (list (list numero_palabra wordcur (get-suggestions diccionario wordcur))))
             )
         )
 
@@ -60,8 +60,8 @@
         (setq numeroLinea (+ numeroLinea 1))
       
         (if (nth 0 index)
-          (push (list numeroLinea linea '(nil)) (cdr (last index))) ; @TODO: '(nil) debiera ser una lista donde esten las correciones que hay que aplicar en la linea de texto.
-          (setq index (list(list numeroLinea linea '(nil)))))       ; @TODO: '(nil) debiera ser una lista donde esten las correciones que hay que aplicar en la linea de texto.
+          (push (list numeroLinea linea (index-words diccionario linea)) (cdr (last index)))
+          (setq index (list(list numeroLinea linea (index-words diccionario linea)))))      
       )
 
       (return-from index-file index)
