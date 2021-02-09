@@ -28,14 +28,18 @@
     
     (let ((words (get-words line ))
           (index '(nil))
-          (numero_palabra 0))
+          (numero_palabra 0)
+          (suggestions '(nil)))
         (dolist (wordcur words) 
 
             (setq numero_palabra (+ numero_palabra 1))
-
-            (if (nth 0 index)
-                (push (list numero_palabra wordcur (get-suggestions diccionario wordcur)) (cdr (last index)))
-                (setq index (list (list numero_palabra wordcur (get-suggestions diccionario wordcur))))
+            (setq suggestions (get-suggestions diccionario wordcur))
+            
+            (if (nth 0 suggestions)
+                (if (nth 0 index)
+                    (push (list numero_palabra wordcur suggestions) (cdr (last index)))
+                    (setq index (list (list numero_palabra wordcur suggestions)))
+                )
             )
         )
 
