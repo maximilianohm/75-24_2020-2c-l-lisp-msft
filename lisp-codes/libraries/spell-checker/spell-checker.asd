@@ -7,6 +7,7 @@
   :version "0.0.1"
   :serial t
   :depends-on (#:cl-ppcre
-               #:alexandria)
+               #:alexandria
+               #:uiop)
   :components ((:file "package")
                (:file "spell-checker")))
