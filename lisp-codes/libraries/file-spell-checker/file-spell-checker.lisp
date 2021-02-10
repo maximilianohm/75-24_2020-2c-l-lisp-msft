@@ -74,9 +74,29 @@
 (defun writeIndexToSTDOut (index) 
 
     "Imprime las lineas del indice junto con su numero de line a stdout."
+    
+    ;(format T "~%~D:~%~D ~S" (nth 0 x) (nth 1 x))
 
-    (dolist (node index) 
-        (format T "~%~D: ~S" (nth 0 node) (nth 1 node))))
+    (mapcar #'(lambda (linea)
+            (if (not (null (car (nth 2 linea))))
+                (mapcar #'(lambda (palabra)
+                        (format T "~D:~D < ~S |" (nth 0 linea) (nth 0 palabra) (nth 1 palabra))
+                        (mapcar #'(lambda (sugerencia)
+                                (format T " ~S " sugerencia)
+                            ) (nth 2 palabra)
+                            
+                        )
+                        (format T ">~%")
+                    ) (nth 2 linea)
+                )   
+            )
+            
+        ) index
+    )
+         
+    ;(dolist (node index) 
+     ;   (format T "~%~D: ~S" (nth 0 node) (nth 1 node)))
+)
 
 
 (defun writeIndex (filePath index) 
