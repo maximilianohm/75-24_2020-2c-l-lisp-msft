@@ -74,28 +74,45 @@
 (defun writeIndexToSTDOut (index) 
 
     "Imprime las lineas del indice junto con su numero de line a stdout."
-    
-    ;(format T "~%~D:~%~D ~S" (nth 0 x) (nth 1 x))
+         
+    (dolist (node index) 
+        (format T "~%~D: ~S" (nth 0 node) (nth 1 node)))
+)
 
-    (mapcar #'(lambda (linea)
-            (if (not (null (car (nth 2 linea))))
-                (mapcar #'(lambda (palabra)
-                        (format T "~D:~D < ~S |" (nth 0 linea) (nth 0 palabra) (nth 1 palabra))
-                        (mapcar #'(lambda (sugerencia)
-                                (format T " ~S " sugerencia)
-                            ) (nth 2 palabra)
-                            
-                        )
-                        (format T ">~%")
-                    ) (nth 2 linea)
-                )   
-            )
-            
-        ) index
+(defun createSuggestionsFile (filePath index) 
+
+    "Crea un archivo con las palabras erroneas y sus sugerencias de correcion, indexadas por nro de linea y palabra"
+    
+
+    (with-open-file (str filePath
+                        :direction :output
+                        :if-exists :rename-and-delete
+                        :if-does-not-exist :create)
+        (format str "----- Sugerencias de correción -----~%")
+        (format str "~%")
+        (format str "Formato: \"N°linea:N°palabra < palabra-erronea | sugerencia1 sugerencia2 ... >\"~%")
+        (format str "~%")
+        (mapcar #'(lambda (linea)
+                (if (not (null (car (nth 2 linea))))
+                    ;---------
+                    ;TODO: llevar esto a otra funcion, puede servir para el armado del otro archivo
+                    (mapcar #'(lambda (palabra)
+                            (format str "~D:~D < ~S |" (nth 0 linea) (nth 0 palabra) (nth 1 palabra))
+                            (mapcar #'(lambda (sugerencia)
+                                    (format str " ~S " sugerencia)
+                                ) (nth 2 palabra)
+                            )
+                            (format str ">~%")
+                        ) (nth 2 linea)
+                    )
+                    ;-------
+                )
+                
+            ) index
+        )
+    
     )
          
-    ;(dolist (node index) 
-     ;   (format T "~%~D: ~S" (nth 0 node) (nth 1 node)))
 )
 
 
