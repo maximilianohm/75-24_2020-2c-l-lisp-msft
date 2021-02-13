@@ -33,7 +33,8 @@
         (dolist (wordcur words) 
 
             (setq numero_palabra (+ numero_palabra 1))
-            (setq suggestions (get-suggestions diccionario wordcur))
+            (setq suggestions (get-suggestions diccionario (string-downcase wordcur)))
+            ;(setq suggestions (get-suggestions diccionario wordcur)) ----> Acá es cuando pasa la palabra con mayúsculas
             
             (if (nth 0 suggestions)
                 (if (nth 0 index)
@@ -79,6 +80,61 @@
         (format T "~%~D: ~S" (nth 0 node) (nth 1 node)))
 )
 
+
+(defun createSuggestion(palabra)
+
+	"Crea la estructura de la palabra a cambiar, quedando del estilo: <palabra-erronea | (sugerencia1, sugerencia2 ........)>"
+
+	(setq numeroSugerencia 1)
+	(setq correccion (concatenate 'string "<" (nth 1 palabra) " | ("))
+    (setq todasSugerencias "")
+    (setq tamaño (length(nth 2 palabra)))
+    (dolist (sugerencia (nth 2 palabra))
+    	;Verifica si la sugerencia es la última sugerencia disponible, esto es para cortar la impresión de la coma y quede todo mas prolijo
+    	(if(equal tamaño numeroSugerencia)
+			(setq todasSugerencias (concatenate 'string todasSugerencias sugerencia))
+			(setq todasSugerencias (concatenate 'string todasSugerencias sugerencia ", "))
+		)
+		(setq numeroSugerencia (+ numeroSugerencia 1))
+    )
+    (setq correccion (concatenate 'string correccion todasSugerencias ")>"))
+)
+
+
+(defun wrongLineCreation (str lineaArchivo listadoPalabras)
+
+	"Crea la linea en donde se reemplaza la palabra incorrecta por las sugerencias"
+
+	(setq linea lineaArchivo)
+   	(dolist (palabra listadoPalabras)
+   		;Reemplaza la palabra incorrecta en la línea por el tercer parámetro que tiene la pinta <palabra-erronea|(sugerencias)>
+    	(setq linea (cl-ppcre:regex-replace-all (nth 1 palabra) linea (createSuggestion palabra)))
+    )
+    (format str "~S~%" linea)
+)
+
+(defun createResultFile (filePath index) 
+
+    "Crea un archivo en el que se tiene el texto original con las palabras erroneas seguidas por su sugerencia"
+
+    (with-open-file (str filePath
+                        :direction :output
+                        :if-exists :rename-and-delete
+                        :if-does-not-exist :create)
+   		(dolist (elemento index)
+   			;Verifica si hay palabas erroneas
+    		(if(not(null(car(nth 2 elemento))))
+    			;Si hay palabras incorrectas, crea la linea que se va a imprimir en el archivo
+    	  		(wrongLineCreation str (nth 1 elemento) (nth 2 elemento))
+    	  		;En caso de que no haya, directamente imprime la linea en el archivo
+    	  		(format str "~S~%" (nth 1 elemento))
+    		)
+    	)
+    )
+         
+)
+
+
 (defun createSuggestionsFile (filePath index) 
 
     "Crea un archivo con las palabras erroneas y sus sugerencias de correcion, indexadas por nro de linea y palabra"
@@ -90,29 +146,22 @@
                         :if-does-not-exist :create)
         (format str "----- Sugerencias de correción -----~%")
         (format str "~%")
-        (format str "Formato: \"N°linea:N°palabra < palabra-erronea | sugerencia1 sugerencia2 ... >\"~%")
+        (format str "Formato: \"N°linea:N°palabra <palabra-erronea | (sugerencia1, sugerencia2 ... )>\"~%")
         (format str "~%")
         (mapcar #'(lambda (linea)
                 (if (not (null (car (nth 2 linea))))
-                    ;---------
-                    ;TODO: llevar esto a otra funcion, puede servir para el armado del otro archivo
                     (mapcar #'(lambda (palabra)
-                            (format str "~D:~D < ~S |" (nth 0 linea) (nth 0 palabra) (nth 1 palabra))
-                            (mapcar #'(lambda (sugerencia)
-                                    (format str " ~S " sugerencia)
-                                ) (nth 2 palabra)
-                            )
-                            (format str ">~%")
+                    	(format str "~D:~D " (nth 0 linea) (nth 0 palabra))
+                    	(format str "~S~%" (createSuggestion palabra ))
                         ) (nth 2 linea)
                     )
-                    ;-------
                 )
                 
             ) index
         )
     
     )
-         
+        
 )
 
 
