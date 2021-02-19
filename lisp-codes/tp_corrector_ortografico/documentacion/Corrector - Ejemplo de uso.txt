@@ -3,11 +3,11 @@
 
 ; Inicializar el diccionario
 (defvar diccionario)
-(setq diccionario (init-dictionary "abcdefghijklmnñopqrstuvwxyz" "/home/teoprog/msft-tp/lisp-codes/lisp-examples/corrector_ortografico/archivo_grande.txt"))
+(setq diccionario (init-dictionary "abcdefghijklmnñopqrstuvwxyz" "/home/federico/FIUBA/TDL/TP/75-24_2020-2c-l-lisp-msft/lisp-codes/lisp-examples/corrector_ortografico/archivo_grande.txt"))
 
 ; Inicializo el índice de correcciones.
 (defvar indice-correccion)
-(setq indice-correccion (index-file diccionario "/home/teoprog/msft-tp/lisp-codes/lisp-examples/indice/Prueba.txt"))
+(setq indice-correccion (index-file diccionario "/home/federico/FIUBA/TDL/TP/75-24_2020-2c-l-lisp-msft/lisp-codes/lisp-examples/indice/Prueba.txt"))
 
 ; Imprimo a STD Out el primer nivel del indice de correccion.
 (writeIndexToSTDOut indice-correccion)

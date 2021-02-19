@@ -9,10 +9,10 @@
 
 ;; Inicializo el índice de correcciones.
 (defvar indice-correccion)
-(setq indice-correccion (index-file diccionario "corrector-ortografico/archivo_entrada.txt"))
+(setq indice-correccion (index-file diccionario "corrector-ortografico/caso_uso_01.txt"))
 
 ;; Se crea el archivo de sugerencias.
-(createSuggestionsFile "corrector-ortografico/sugerencias.txt" indice-correccion)
+(createSuggestionsFile "corrector-ortografico/caso_uso_01_sugerencias.txt" indice-correccion)
 
 ;; Se crea el archivo de resumen.
-(createResultFile "corrector-ortografico/corregido.txt" indice-correccion)
+(createResultFile "corrector-ortografico/caso_uso_01_corregido.txt" indice-correccion)
